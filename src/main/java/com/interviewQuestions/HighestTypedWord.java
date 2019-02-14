@@ -79,11 +79,13 @@ public class HighestTypedWord {
 				word = e.getKey();
 			}
 		}
-		if (i > 1)
+		if (i > 1) {
 			System.out.println("you have typed " + word + " word " + i + " number of times");
-		else
+			i=0;word=null;
+		}
+		else {
 			System.out.println("there is no repeated word in your sentense");
-
+			}
 	}
 
 	private static Map<String, Integer> detectRepeatedWords(String[] words) {
