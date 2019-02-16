@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class PrimeNo {
 
+	private static Scanner sc;
+
 	public static void main(String[] args) {
 		System.out.println("Enter a number");
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 		int number = sc.nextInt();
 
 		for (int i = 1; i < number; i++) {
