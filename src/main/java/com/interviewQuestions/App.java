@@ -34,6 +34,30 @@ public class App {
 		List<Integer> number = Arrays.asList(2, 3, 4, 5);
 		List<Integer> square = number.stream().map(x -> x * x).collect(Collectors.toList());
 		System.out.println(square);
+		
+		new Thread(() -> Stream.iterate(1, n -> n + 1).limit(20).filter(n -> n % 2 == 0).forEach(System.out::println))
+				.start();
+
+		Arithemetic add = (a, b) -> a + b;
+		Arithemetic substract = (a, b) -> a - b;
+
+		System.out.println(add(2, 2, add));
+		System.out.println(substract(7, 2, substract));
+
+
+	}
+	@FunctionalInterface
+	interface Arithemetic {
+		public int doOperation(int a, int b);
+	}
+
+	private static int add(int a, int b, Arithemetic arr) {
+		return arr.doOperation(a, b);
+
+	}
+
+	private static int substract(int a, int b, Arithemetic arr) {
+		return arr.doOperation(a, b);
 
 	}
 }
